@@ -1,0 +1,73 @@
+
+package operaciones.basicas;
+
+import java.util.Scanner;
+
+class Calculos {
+    public double sumar(double a, double b) {
+        return a + b;
+    }
+
+    public double resta(double a, double b) {
+        return a - b;
+    }
+
+    public double multi(double a, double b) {
+        return a * b;
+    }
+
+    public double dividir(double a, double b) {
+        if (b != 0) {
+            return a / b;
+        } else {
+            System.out.println("Error: División por cero");
+            return Double.NaN;
+        }
+    }
+}
+
+public class OperacionesBasicas {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Calculos calculos = new Calculos();
+
+        System.out.print("Ingrese el primer número: ");
+        double a = scanner.nextDouble();
+
+        System.out.print("Ingrese el segundo número: ");
+        double b = scanner.nextDouble();
+
+        System.out.println("Elija la operación:");
+        System.out.println("1. Sumar");
+        System.out.println("2. Restar");
+        System.out.println("3. Multiplicar");
+        System.out.println("4. Dividir");
+
+        int opcion = scanner.nextInt();
+        double resultado = 0;
+
+        switch (opcion) {
+            case 1:
+                resultado = calculos.sumar(a, b);
+                System.out.println("Resultado de la suma: " + resultado);
+                break;
+            case 2:
+                resultado = calculos.resta(a, b);
+                System.out.println("Resultado de la resta: " + resultado);
+                break;
+            case 3:
+                resultado = calculos.multi(a, b);
+                System.out.println("Resultado de la multiplicación: " + resultado);
+                break;
+            case 4:
+                resultado = calculos.dividir(a, b);
+                System.out.println("Resultado de la división: " + resultado);
+                break;
+            default:
+                System.out.println("Opción no válida");
+                break;
+        }
+
+        scanner.close();
+    }
+}
